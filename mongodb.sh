@@ -40,7 +40,7 @@ elif [ $# -eq 0 ] ; then
   exit $EXIT_ERROR
 fi
 index=.$(echo $@ | sed 's/[ ,]/./g')
-MONGO_CMD="$MONGO --host $DB_HOST --port $DB_PORT --username $DB_USERNAME --password $DB_PASSWORD --authenticationDatabase admin --quiet"
+MONGO_CMD="$MONGO --host $DB_HOST --port $DB_PORT --authenticationDatabase admin --quiet"
 output=$(
 	$MONGO_CMD --eval "db.runCommand( { serverStatus: 1} )" |\
 	sed -e 's/NumberLong(\(.*\))/\1/ 
