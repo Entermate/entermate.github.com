@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Postback Example</title>
+  <script type='application/javascript' src='https://s3.ap-northeast-2.amazonaws.com/cdn.bynd.in/postback_v1.js'></script>
+  <script>
+    function pbCallback(success) {
+      if (success)
+        console.info('success');
+      else
+        console.error('failed');
+    }
+    pb.options.debug = true;
+    pb.postback({
+      code: 'ac0f2c91-42fd-4b02-b119-bd2b6fd371ee',
+      action: 'OPEN',
+      callback: pbCallback
+    });
+
+    function Join() {
+      pb.postback({
+        code: 'ac0f2c91-42fd-4b02-b119-bd2b6fd371ee',
+        action: 'CONVERSION',
+        callback: pbCallback
+      });
+    }
+
+  </script>
+
+  <body>
+
+    사전 예약 페이지
+    <a href="javascript:Join();">참여완료</a>
+
+  </body>
+
+</html>
